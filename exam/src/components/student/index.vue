@@ -4,12 +4,12 @@
     <el-row class="padding-50">
       <el-col :span="24">
         <ul class="list">
-          <li class="logo"><i class="iconfont icon-kaoshi"></i><span>Exam-Online</span></li>
+          <li class="logo"><img src="../../assets/img/school.jpg"></li>
           <li><a href="javascript:;" @click="exam()">我的试卷</a></li>
-          <li><a href="javascript:;" @click="practice()">我的练习</a></li>
+          <!-- <li><a href="javascript:;" @click="practice()">我的练习</a></li> -->
           <li><router-link to="/scoreTable">我的分数</router-link></li>
-          <li><router-link to="/message">给我留言</router-link></li>
-          <li><a href="javascript:;">待定</a></li>
+          <!-- <li><router-link to="/message">给我留言</router-link></li> -->
+          <!-- <li><a href="javascript:;">待定</a></li> -->
           <li class="right" @mouseenter="flag = !flag" @mouseleave="flag = !flag">
             <a href="javascript:;"><i class="iconfont icon-Userselect icon"></i>{{user.userName}}</a>
             <div class="msg" v-if="flag">
@@ -104,7 +104,7 @@ li {
 }
 #student .list li:hover {
   background-color: #0195ff;
-  transition: all 2s ease;
+  /* transition: all 2s ease; */
 }
 #student .list li:hover a {
   color: #fff;
@@ -119,7 +119,7 @@ li {
 #student .list .logo {
   display: flex;
   font-weight: bold;
-  color: #2f6c9f;
+  /* color: #2f6c9f; */
 }
 #student .list .logo i {
   font-size: 50px;

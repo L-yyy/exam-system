@@ -1,4 +1,4 @@
-<!-- 题库管理功能介绍 -->
+<!-- 题库管理功能介绍
 <template>
   <section class="description">
     <p class="title">题库管理功能介绍</p>
@@ -27,4 +27,4 @@
     margin: 20px 0px;
   }
 }
-</style>
+</style> -->

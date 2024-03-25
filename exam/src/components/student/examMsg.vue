@@ -34,7 +34,7 @@
             <div class="title">
               <span>{{examData.source}}</span><i class="header-icon el-icon-info"></i>
               <span class="time">{{examData.totalScore}}分 / {{examData.totalTime}}分钟</span>
-              <el-button type="primary" size="small">点击查看试题详情</el-button>
+              <!-- <el-button type="primary" size="small">点击查看试题详情</el-button> -->
             </div>
           </template>
           <el-collapse class="inner">

@@ -1,3 +1,4 @@
+//添加题库
 //获取试卷并跳转到添加题库
 <template>
   <div class="exam">
@@ -22,14 +23,14 @@
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       :current-page="pagination.current"
-      :page-sizes="[4, 8, 10, 20]"
+      :page-sizes="[5, 10, 15, 20]"
       :page-size="pagination.size"
       layout="total, sizes, prev, pager, next, jumper"
       :total="pagination.total" class="page">
     </el-pagination>
   </div>
 </template>
-
+考试管理
 <script>
 export default {
   data() {
@@ -38,7 +39,7 @@ export default {
       pagination: { //分页后的考试信息
         current: 1, //当前页
         total: null, //记录条数
-        size: 4 //每页条数
+        size: 5 //每页条数
       },
     }
   },

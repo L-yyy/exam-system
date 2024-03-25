@@ -1,4 +1,4 @@
-<!-- 考试管理功能介绍 -->
+<!-- 考试管理功能介绍
 <template>
   <section class="description">
     <p class="title">考试管理功能介绍</p>
@@ -26,4 +26,4 @@
     margin: 20px 0px;
   }
 }
-</style>
+</style> -->

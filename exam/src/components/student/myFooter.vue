@@ -3,10 +3,10 @@
   <footer id="footer">
     <ul>
       <li><a href="javascript:;">关于我们</a></li>
-      <li><a href="javascript:;">免责声明</a></li>
-      <li><a href="javascript:;">使用协议</a></li>
-      <li><a href="http://beian.miit.gov.cn/" target="_blank">渝ICP备19001371号</a></li>
-      <li>@Copyright 2018-2019. ALL Rights Reserved</li>
+      <li><a href="javascript:;">活力小组</a></li>
+      <li><a href="javascript:;">数学与计算机学院</a></li>
+      <!-- <li><a href="http://beian.miit.gov.cn/" target="_blank">渝ICP备19001371号</a></li> -->
+      <!-- <li>@Copyright 2018-2019. ALL Rights Reserved</li> -->
     </ul>
   </footer>
 </template>

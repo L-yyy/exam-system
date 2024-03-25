@@ -138,11 +138,11 @@ export default {
   padding: 20px 30px;
   border: 1px solid #eee;
   box-shadow: 0 0 4px 2px rgba(217,222,234,0.3);
-  transition: all 0.6s ease;
+  // transition: all 0.6s ease;
 }
 .paper .item:hover {
   box-shadow: 0 0 4px 2px rgba(140, 193, 248, 0.45);
-  transform: scale(1.03);
+  // transform: scale(1.03);
 }
 .paper .item .info {
   font-size: 14px;

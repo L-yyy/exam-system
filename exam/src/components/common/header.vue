@@ -4,13 +4,13 @@
     <el-row>
       <el-col :span="4" class="topbar-left">
         <i class="iconfont icon-kaoshi"></i>
-        <span class="title" @click="index()">EXAM-SYSTEM</span>
+        <img class="img" src="../../assets/img/school.jpg">
       </el-col>
       <el-col :span="20" class="topbar-right">
         <i class="el-icon-menu" @click="toggle()"></i>
         <div class="user">
           <span>{{user.userName}}</span>
-          <img src="@/assets/img/userimg.png" class="user-img" ref="img" @click="showSetting()" />
+          <img src="@/assets/img/ape.jpg" class="user-img" ref="img" @click="showSetting()" />
           <transition name="fade">
             <div class="out" ref="out" v-show="login_flag">
               <ul>
@@ -73,6 +73,12 @@ export default {
 </script>
 
 <style scoped>
+.img{
+  width: 315px;
+  height: 80px;
+  left: -50px;
+}
+
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }

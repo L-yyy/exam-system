@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <section class="index">
     <div class="hello">
       <i class="iconfont icon-xihuan"></i><span>很高兴遇见你,{{user.userName}}老师。</span>
@@ -78,4 +78,4 @@ export default {
   }
 }
 </style>
-
+ -->

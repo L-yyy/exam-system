@@ -1,3 +1,4 @@
+// 查看学生成绩详情
 // 成绩统计页面
 <template>
   <div id="grade">

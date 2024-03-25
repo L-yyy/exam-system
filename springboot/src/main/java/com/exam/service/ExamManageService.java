@@ -2,9 +2,12 @@ package com.exam.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.exam.entity.AssignTeacherVO;
 import com.exam.entity.ExamManage;
+import com.exam.entity.Teacher;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ExamManageService {
 
@@ -23,4 +26,14 @@ public interface ExamManageService {
     int add(ExamManage exammanage);
 
     ExamManage findOnlyPaperId();
+
+    List<String> findAssignTeacher(int paperId);
+
+    List<Teacher> findTeachers();
+
+    int addAssignTeacher(Map<String, Integer> ids);
+
+    List<AssignTeacherVO> findSubjectTeachers(Integer id);
+
+    int delSubTeacher(Integer teacherId, Integer paperId);
 }

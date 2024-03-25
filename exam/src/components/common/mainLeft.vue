@@ -3,7 +3,7 @@
   <div id="left">
     <el-menu
       active-text-color="#dd5862" 
-      text-color="#000" 
+      text-color="#e8e8e8" 
       :default-active="this.$route.path"
       class="el-menu-vertical-demo" 
       @open="handleOpen" 
@@ -61,6 +61,15 @@ export default {
           icon: 'icon-Userselect',
           content:[{item1:'教师管理',path:'/teacherManage'},{item2: '添加教师',path: '/addTeacher'}],
         })
+        console.log('当前mune：'+this.menu)
+        // this.menu.push({
+        //   index: '6',
+        //   title: '课程管理',
+        //   icon: 'icon-kechengbiao',
+        //   content:[{ item1: '指定课程', path: '/assignTeacher' }],
+        // })
+
+        this.menu[0].content.push({ item3: '指定课程', path: '/assignTeacher' })
       }
     }
   },
@@ -83,7 +92,7 @@ export default {
 }
 #left {
   height: 900px;
-  background-color: #124280;
+  background-color: #ffffff;
   z-index: 0;
 }
 #left .el-menu-vertical-demo .title {

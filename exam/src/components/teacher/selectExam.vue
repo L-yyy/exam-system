@@ -1,4 +1,4 @@
-//查询所有考试
+//考试查询
 <template>
   <div class="exam">
     <el-table :data="pagination.records" border>
@@ -23,7 +23,7 @@
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       :current-page="pagination.current"
-      :page-sizes="[4, 8, 10, 20]"
+      :page-sizes="[6, 12, 18, 32]"
       :page-size="pagination.size"
       layout="total, sizes, prev, pager, next, jumper"
       :total="pagination.total" class="page">
@@ -86,7 +86,7 @@ export default {
       pagination: { //分页后的考试信息
         current: 1, //当前页
         total: null, //记录条数
-        size: 4 //每页条数
+        size: 6 //每页条数
       },
       dialogVisible: false
     }

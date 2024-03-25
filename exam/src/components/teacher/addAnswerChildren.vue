@@ -331,7 +331,7 @@ export default {
         },
       ],
       paperId: null,
-      optionValue: '选择题', //题型选中值
+      optionValue: '', //题型选中值
       subject: '', //试卷名称用来接收路由参数
       postChange: { //选择题提交内容
         subject: '', //试卷名称

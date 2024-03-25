@@ -20,13 +20,13 @@
               <div class="submit">
                 <el-button type="primary" class="row-login" @click="login()">登录</el-button>
               </div>
-              <!-- <div class="options">
-                <p class="find"><a href="javascript:;">找回密码</a></p>
+              <div class="options">
+                <p class="find"><a href="javascript:;"></a></p>
                 <div class="register">
-                  <span>没有账号?</span>
-                  <span><a href="javascript:;">去注册</a></span>
+                  <!-- <span>没有账号?</span> -->
+                  <span ><a href="javascript:;" @click="dialogVisible = !dialogVisible">找回密码</a></span>
                 </div>
-              </div> -->
+              </div>
             </el-form>
           </div>
         </div>
@@ -34,14 +34,38 @@
     </el-row>
     <el-row class="footer">
       <el-col>
-        <p class="msg2">版权所有 ©2019 <!--重庆文理学院计科2班余晓江--> 保留所有权利  <a href="http://beian.miit.gov.cn/" target="_blank">渝ICP备19001371号</a></p>
+        <p class="msg2"><a></a></p>
       </el-col>
     </el-row>
     <section class="remind">
       <span>管理员账号：9527</span>
-      <span>教师账号：20081001</span>
+      <span>教师账号：20211001</span>
       <span>密码都是：123456</span>
     </section>
+
+    <div>
+      <el-dialog
+      title="找回密码"
+      :visible.sync="dialogVisible"
+      width="30%"
+      :before-close="handleClose">
+      <section class="update">
+        <div class="title1">
+            <span>在下面的输入框中输入找回账号绑定的手机号:</span>
+            <el-input
+              rows="1"
+              v-model="phone"
+              placeholder="请输入手机号">
+            </el-input>
+          </div>
+      </section>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="submit()">确 定</el-button>
+      </span>
+    </el-dialog>
+    </div>
+ 
   </div>
 </template>
 
@@ -54,9 +78,11 @@ export default {
       role: 2,
       labelPosition: 'left',
       formLabelAlign: {
-        username: '20154084',
+        username: '20215012',
         password: '123456'
-      }
+      },
+      dialogVisible: false,
+      phone: ""
     }
   },
   methods: {
@@ -100,9 +126,13 @@ export default {
           })
         }
       })
+      
     },
     clickTag(key) {
       this.role = key
+    },
+    change() {
+        this.data.dialogVisible = !this.data.dialogVisible
     }
   },
   computed: mapState(["userInfo"]),
@@ -217,7 +247,16 @@ a:link {
 .bottom .options > a {
   color: #ff962a;
 }
+
 .bottom .options .register span:nth-child(1) {
   color: #8C8C8C;
 }
+
+.title1 {
+        padding-left: 6px;
+        color: #2f4f4f;
+        span:nth-child(1) {
+          margin-right: 6px;
+        }
+      }
 </style>

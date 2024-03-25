@@ -2,7 +2,9 @@ package com.exam.mapper;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.exam.entity.AssignTeacherVO;
 import com.exam.entity.ExamManage;
+import com.exam.entity.Teacher;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -38,4 +40,28 @@ public interface ExamManageMapper {
      */
     @Select("select paperId from exam_manage order by paperId desc limit 1")
     ExamManage findOnlyPaperId();
+
+    @Select("select teacherName from subject_teacher where paperId=#{paperid}")
+    List<String> findAssignTeachers(int paperId);
+
+    @Select("select teacherName,teacherId from teacher")
+    List<Teacher> findTeachers();
+
+    @Insert("insert into subject_teacher(teacherId,paperId,teacherName) values (#{selectedTeacherId},#{paperId},#{selectedTeacherName})")
+    int addTheacherToSubject(int paperId, int selectedTeacherId, String selectedTeacherName);
+
+    @Select("select teacherName from teacher where teacherId=#{selectedTeacherId}")
+    String findTeacherName(int selectedTeacherId);
+
+    @Select("select teacherId,paperId,teacherName from subject_teacher where paperId=#{id}")
+    List<AssignTeacherVO> findSubkectTeachers(Integer id);
+
+    @Select("select source from exam_manage where paperId=#{paperId}")
+    String getSourceByPaperId(int paperId);
+
+    @Delete("delete from subject_teacher where teacherId=#{teacherId} and paperId=#{paperId}")
+    int delSubTeacher(Integer teacherId, Integer paperId);
+
+    @Select("select * from subject_teacher where teacherId=#{selectedTeacherId} and paperId=#{paperId}")
+    List<AssignTeacherVO> isHaveTea(int selectedTeacherId, int paperId);
 }

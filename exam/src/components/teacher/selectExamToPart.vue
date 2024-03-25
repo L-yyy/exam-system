@@ -1,3 +1,4 @@
+//成绩分段查询
 //查询所有考试跳转到分段页面
 <template>
   <div class="exam">
@@ -22,7 +23,7 @@
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       :current-page="pagination.current"
-      :page-sizes="[4, 8, 10, 20]"
+      :page-sizes="[6, 12, 18, 24]"
       :page-size="pagination.size"
       layout="total, sizes, prev, pager, next, jumper"
       :total="pagination.total" class="page">
@@ -38,7 +39,7 @@ export default {
       pagination: { //分页后的考试信息
         current: 1, //当前页
         total: null, //记录条数
-        size: 4 //每页条数
+        size: 6 //每页条数
       },
       dialogVisible: false
     }

@@ -1,4 +1,4 @@
-//查询所有题库
+//所有题库
 <template>
   <div class="exam">
     <el-table :data="pagination.records" border :row-class-name="tableRowClassName">
@@ -13,7 +13,7 @@
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       :current-page="pagination.current"
-      :page-sizes="[6, 10]"
+      :page-sizes="[6, 12]"
       :page-size="pagination.size"
       layout="total, sizes, prev, pager, next, jumper"
       :total="pagination.total"
