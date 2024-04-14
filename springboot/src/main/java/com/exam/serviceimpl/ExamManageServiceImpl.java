@@ -1,10 +1,12 @@
 package com.exam.serviceimpl;
 
 //import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.exam.entity.AssignTeacherVO;
 import com.exam.entity.ExamManage;
+import com.exam.entity.SubjectTeacher;
 import com.exam.entity.Teacher;
 import com.exam.mapper.ExamManageMapper;
 import com.exam.service.ExamManageService;
@@ -100,5 +102,18 @@ public class ExamManageServiceImpl implements ExamManageService {
         return examManageMapper.delSubTeacher(teacherId, paperId);
     }
 
+    @Override
+    public List<SubjectTeacher> findSubjectByCid(Integer cid) {
+        return examManageMapper.findSubjectByCid(cid);
+    }
 
+    @Override
+    public IPage<ExamManage> findAllByPaperIds(Page<ExamManage> page, List<Integer> paperIds) {
+        return examManageMapper.findAllByPaperIds();
+    }
+
+
+    public List<ExamManage> findAllSub(List<Integer> paperIds) {
+        return examManageMapper.finAllSub(paperIds);
+    }
 }

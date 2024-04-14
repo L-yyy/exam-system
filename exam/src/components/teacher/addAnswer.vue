@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     getExamInfo() { //分页查询所有试卷信息
-      this.$axios(`/api/exams/${this.pagination.current}/${this.pagination.size}`).then(res => {
+      this.$axios(`/api/exams/${this.pagination.current}/${this.pagination.size}/${this.$cookies.get("role")}/${this.$cookies.get("cid")}`).then(res => {
         this.pagination = res.data.data
       }).catch(error => {
       })

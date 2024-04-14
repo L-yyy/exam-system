@@ -27,6 +27,10 @@ public class PaperServiceImpl implements PaperService {
 
     @Override
     public int add(PaperManage paperManage) {
+        List<PaperManage> list = paperMapper.isHave(paperManage.getPaperId(),paperManage.getQuestionType());
+        if (list.size()>0){
+            paperMapper.delExam(paperManage.getPaperId(),paperManage.getQuestionType());
+        }
         return paperMapper.add(paperManage);
     }
 

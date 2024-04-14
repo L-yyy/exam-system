@@ -48,10 +48,10 @@ const state = {
         //   content:[{item1:'教师管理',path:'/teacherManage'},{item2: '添加教师',path: '/addTeacher'}],
         // },
         // {
-        //   index: '7',
-        //   title: '模块管理',
-        //   icon: 'icon-module4mokuai',
-        //   content:[{item1:'模块操作',path:'/module'}],
+        //     index: '7',
+        //     title: '模块管理',
+        //     icon: 'icon-module4mokuai',
+        //     content: [{ item1: '模块操作', path: '/module' }],
         // }
     ],
 }

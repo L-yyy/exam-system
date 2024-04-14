@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 public class ExamManageController {
@@ -31,6 +32,39 @@ public class ExamManageController {
     public ApiResult findAll(@PathVariable("page") Integer page, @PathVariable("size") Integer size){
         System.out.println("分页查询所有试卷");
         ApiResult apiResult;
+        Page<ExamManage> examManage = new Page<>(page,size);
+        IPage<ExamManage> all = examManageService.findAll(examManage);
+        apiResult = ApiResultHandler.buildApiResult(200, "请求成功！", all);
+        return apiResult;
+    }
+
+    @GetMapping("/exams/{page}/{size}/{role}/{cid}")
+    public ApiResult findAll2(@PathVariable("page") Integer page, @PathVariable("size") Integer size,@PathVariable("role") Integer role,@PathVariable("cid") Integer cid){
+        System.out.println("分页查询所有试卷");
+        ApiResult apiResult;
+
+        if (role == 1) {
+            // 查询该教师对应的科目列表
+            List<SubjectTeacher> list = examManageService.findSubjectByCid(cid);
+
+            // 从list中提取所有的paperId
+            List<Integer> paperIds = list.stream().map(SubjectTeacher::getPaperId).collect(Collectors.toList());
+
+            // 如果paperIds为空，则直接返回空结果
+            if (paperIds.isEmpty()) {
+                apiResult = ApiResultHandler.buildApiResult(200, "请求成功，但没有试卷！", new Page<ExamManage>());
+                return apiResult;
+            }
+
+            List<ExamManage> list1 =  examManageService.findAllSub(paperIds);
+            // 使用paperIds进行分页查询
+            Page<ExamManage> examManage = new Page<>(page,size);
+            IPage<ExamManage> all = examManageService.findAll(examManage);
+            all.setRecords(list1);
+            apiResult = ApiResultHandler.buildApiResult(200, "请求成功！", all);
+            return apiResult;
+        }
+
         Page<ExamManage> examManage = new Page<>(page,size);
         IPage<ExamManage> all = examManageService.findAll(examManage);
         apiResult = ApiResultHandler.buildApiResult(200, "请求成功！", all);

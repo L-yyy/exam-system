@@ -40,6 +40,7 @@
     <section class="remind">
       <span>管理员账号：9527</span>
       <span>教师账号：20211001</span>
+      <span>学生账号：20215012</span>
       <span>密码都是：123456</span>
     </section>
 

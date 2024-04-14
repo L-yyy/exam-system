@@ -1,4 +1,4 @@
-// 我的试卷页面
+ // 我的试卷页面 
 <template>
   <div id="myExam">
     <div class="title">我的试卷</div>
@@ -8,7 +8,8 @@
         <li class="search-li"><div class="icon"><input type="text" placeholder="试卷名称" class="search" v-model="key"><i class="el-icon-search"></i></div></li>
         <li><el-button type="primary" @click="search()">搜索试卷</el-button></li>
       </ul>
-      <ul class="paper" v-loading="loading">
+      
+    <ul class="paper" v-loading="loading">
         <li class="item" v-for="(item,index) in pagination.records" :key="index">
           <h4 @click="toExamMsg(item.examCode)">{{item.source}}</h4>
           <p class="name">{{item.source}}-{{item.description}}</p>
@@ -19,6 +20,7 @@
           </div>
         </li>
       </ul>
+ 
       <div class="pagination">
         <el-pagination
           @size-change="handleSizeChange"
@@ -59,7 +61,10 @@ export default {
   methods: {
     //获取当前所有考试信息
     getExamInfo() {
-      this.$axios(`/api/exams/${this.pagination.current}/${this.pagination.size}`).then(res => {
+      console.log("当前role:"+this.$cookies.get("role"))
+      
+
+      this.$axios(`/api/exams/${this.pagination.current}/${this.pagination.size}/${this.$cookies.get("role")}`).then(res => {
         this.pagination = res.data.data
         this.loading = false
         console.log(this.pagination)

@@ -1,16 +1,18 @@
 package com.exam.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.exam.entity.AssignTeacherVO;
 import com.exam.entity.ExamManage;
+import com.exam.entity.SubjectTeacher;
 import com.exam.entity.Teacher;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 @Mapper
-public interface ExamManageMapper {
+public interface ExamManageMapper extends BaseMapper {
     @Select("select * from exam_manage")
     List<ExamManage> findAll();
 
@@ -64,4 +66,25 @@ public interface ExamManageMapper {
 
     @Select("select * from subject_teacher where teacherId=#{selectedTeacherId} and paperId=#{paperId}")
     List<AssignTeacherVO> isHaveTea(int selectedTeacherId, int paperId);
+
+    @Select("select * from subject_teacher where teacherId=#{cid}")
+    List<SubjectTeacher> findSubjectByCid(Integer cid);
+
+    @Select("<script>" +
+            "SELECT * FROM manage " +
+            "WHERE paper_id IN " +
+            "<foreach item='paperId' collection='paperIds' open='(' separator=',' close=')'>" +
+            "#{paperId}" +
+            "</foreach>" +
+            "</script>")
+    IPage<ExamManage> findAllByPaperIds();
+
+    @Select("<script>" +
+            "SELECT * FROM exam_manage " +
+            "WHERE paperId IN " +
+            "<foreach item='paperId' collection='paperIds' open='(' separator=',' close=')'>" +
+            "#{paperId}" +
+            "</foreach>" +
+            "</script>")
+    List<ExamManage> finAllSub(@Param("paperIds") List<Integer> paperIds);
 }

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.exam.entity.AssignTeacherVO;
 import com.exam.entity.ExamManage;
+import com.exam.entity.SubjectTeacher;
 import com.exam.entity.Teacher;
 
 import java.util.List;
@@ -36,4 +37,10 @@ public interface ExamManageService {
     List<AssignTeacherVO> findSubjectTeachers(Integer id);
 
     int delSubTeacher(Integer teacherId, Integer paperId);
+
+    List<SubjectTeacher> findSubjectByCid(Integer cid);
+
+    IPage<ExamManage> findAllByPaperIds(Page<ExamManage> page, List<Integer> paperIds);
+
+    List<ExamManage> findAllSub(List<Integer> paperIds);
 }

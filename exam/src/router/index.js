@@ -18,10 +18,15 @@ export default new Router({
                     component: () =>
                         import ('@/components/common/hello')
                 },
-                {
+                { //指定老师
                     path: '/assignTeacher',
                     component: () =>
                         import ('@/components/admin/assignTeacher')
+                },
+                { //课程管理
+                    path: '/subjectManage',
+                    component: () =>
+                        import ('@/components/admin/subjectManage')
                 },
                 {
                     path: '/grade', //学生成绩

@@ -105,7 +105,7 @@ export default {
         this.form = res.data.data
       })
     },
-    deleteById(teacherId) { //删除当前学生
+    deleteById(teacherId) { //删除当前老师
       this.$confirm("确定删除当前教师吗？删除后无法恢复","Warning",{
         confirmButtonText: '确定删除',
         cancelButtonText: '算了,留着吧',

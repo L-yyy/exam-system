@@ -70,6 +70,7 @@ export default {
         // })
 
         this.menu[0].content.push({ item3: '指定课程', path: '/assignTeacher' })
+        this.menu[0].content.push({ item4: '课程管理', path: '/subjectManage' })
       }
     }
   },
